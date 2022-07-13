@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 import {useFormik} from "formik";
 import * as yup from "yup";
+import {API} from "./global";
 
 const movieValidationSchema =yup.object({
   name:yup.string()
@@ -62,7 +63,7 @@ export function AddMovie() {
     // setMovieList([...movieList, newMovie]);
     
 const addMovie =(newMovie) =>{
-    fetch(`https://62a9705dec36bf40bdb78503.mockapi.io/movies`, {
+    fetch(`${API}/movies`, {
       method: "POST",
       body: JSON.stringify(newMovie),
       headers: {
